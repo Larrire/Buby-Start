@@ -4,4 +4,6 @@ def user(user)
   puts ''
   puts user.name
   puts user.email
+  route = gets.chomp()
+  return route
 end

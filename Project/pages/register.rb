@@ -1,4 +1,4 @@
-def register
+def register(params)
   puts "Register page"
   50.times {print '-'}
   puts ''
@@ -15,9 +15,9 @@ def register
 
   if( user.register(name, email, password) )
     puts "User successfuly registered"
-    page_login
+    return "home"
   else
-    puts "There was an erro, please try again"
-    page_home
+    puts "There was an erro, please try again later"
+    return "home"
   end
 end

@@ -9,7 +9,7 @@ class User
   @email
 
   def authenticate(email, password)
-    file_path = 'C:\Users\linik\OneDrive\Área de Trabalho\rubyStart\BCrypt\users.json'
+    file_path = 'C:\Users\linik\OneDrive\Área de Trabalho\rubyStart\Project\users.json'
     file = File.read(file_path)
     users = JSON.parse(file)
 
@@ -24,7 +24,7 @@ class User
   end
 
   def get_user_data(index)
-    file_path = 'C:\Users\linik\OneDrive\Área de Trabalho\rubyStart\BCrypt\users.json'
+    file_path = 'C:\Users\linik\OneDrive\Área de Trabalho\rubyStart\Project\users.json'
     file = File.read(file_path)
     users = JSON.parse(file)
     user = users[index]
@@ -33,7 +33,7 @@ class User
   end
 
   def register(name, email, password)
-    file_path = 'C:\Users\linik\OneDrive\Área de Trabalho\rubyStart\BCrypt\users.json'
+    file_path = 'C:\Users\linik\OneDrive\Área de Trabalho\rubyStart\Project\users.json'
     file = File.read(file_path)
     users = JSON.parse(file)
     users.push({
@@ -42,6 +42,6 @@ class User
       "password" => BCrypt::Password.create(password)
     })
     File.write(file_path, JSON.generate(users))
-    return true
+    return "home"
   end
 end

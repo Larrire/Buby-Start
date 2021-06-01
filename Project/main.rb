@@ -11,24 +11,27 @@ login = nil
 password = nil
 attemps = 0
 actual_route = "home"
+params = nil
 loop = true
 
 routes = {
-  "home" => lambda do 
-    home
-    actual_route = "exit"
-  end,
-  "login" => lambda do 
-    puts "home"
-  end,
-  "register" => lambda do 
-    puts "home"
-  end,
-  "exit" => lambda do 
+  "home" => -> (params) {
+    home(params)
+  },
+  "login_page" => -> (params) {
+    login_page(params)
+  },
+  "register" => -> (params) {
+    register(params)
+  },
+  "user" => -> (params) {
+    user(params)
+  },
+  "exit" => -> (params) {
     loop = false
-  end
+  },
 }
 
 while(loop)
-  routes[actual_route].call
+  actual_route, params = routes[actual_route].call(params)
 end

@@ -1,27 +1,24 @@
 
-
-def home
+def home(params)
   homeloop = true
   puts "Home page"
   50.times {print '-'}
   puts ''
-  puts "Hello, what do you want to do?(1/2)"
+  puts "Hello, what do you want to do?"
   puts "1 - Login"
   puts "2 - Register"
   puts "3 - Exit"
   while(homeloop)
     action = gets.chomp()
     system('cls')
+    homeloop = false
     case action
       when '1'
-        actual_route = 'login'
-        homeloop = false
+        return 'login_page'
       when '2'
-        actual_route = 'register'
-        homeloop = false
+        return 'register'
       when '3'
-        actual_route = 'exit'
-        homeloop = false
+        return 'exit'
       else
         "Choose a valid option"
     end
